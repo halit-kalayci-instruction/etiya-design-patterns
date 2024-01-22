@@ -17,6 +17,7 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public void add() {
-
+        cachingBase.cache("ProductService.Add");
+        loggerBase.log("ProductService.Add");
     }
 }
