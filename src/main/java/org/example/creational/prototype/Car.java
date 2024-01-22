@@ -1,32 +1,37 @@
 package org.example.creational.prototype;
 
 public class Car implements Cloneable {
-    private String brand;
+    private Brand brand;
+    private User user;
     private String model;
     private int year;
     private String color;
 
     @Override
     protected Car clone() {
+        // Deep Copy => Derin
+        // Shallow Copy => Yüzeysel
         try{
-            return (Car) super.clone();
+            Car car = (Car)super.clone();
+            car.brand = this.brand.clone();
+            return car;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public Car(String brand, String model, int year, String color) {
+    public Car(Brand brand, String model, int year, String color) {
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.color = color;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
