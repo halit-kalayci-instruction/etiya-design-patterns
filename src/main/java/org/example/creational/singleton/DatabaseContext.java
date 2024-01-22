@@ -1,14 +1,19 @@
 package org.example.creational.singleton;
 
 
+import java.util.Random;
+
 public class DatabaseContext {
-    private static DatabaseContext instance;
+    private volatile static DatabaseContext instance;
 
     private String name;
 
     private DatabaseContext(String name) {
         try{
-            Thread.sleep(1000);
+            Random random = new Random();
+
+            int randomMs = 1000 + random.nextInt(4001);
+            Thread.sleep(randomMs);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -20,8 +25,16 @@ public class DatabaseContext {
     }
 
     public static DatabaseContext getInstance(String name) {
-        if(instance == null)
-            instance = new DatabaseContext(name);
-        return instance;
+        // c# - lock
+        // java - synchronized
+        DatabaseContext context = instance;
+        if(context!=null) return context;
+
+        synchronized (DatabaseContext.class)
+        {
+            if(instance==null)
+                instance = new DatabaseContext(name);
+            return instance;
+        }
     }
 }
