@@ -9,12 +9,19 @@ import java.util.List;
 public class Main {
     private static final Color colors[] = {Color.BLACK, Color.blue, Color.GRAY, Color.green};
     public static void main(String[] args) {
+        Canvas canvas = new Canvas();
+
         for (int i = 0; i < 1000; i++) {
             Circle circle = ShapeFactory.getCircle(getRandomColor());
             circle.setY(getRandomCoordinate());
             circle.setX(getRandomCoordinate());
             circle.draw();
+
+            canvas.addCircle(circle);
         }
+
+        canvas.setSize(1500,1500);
+        canvas.setVisible(true);
         // 1.000.000 instance => 24.000.000 bytes
         // 4 instance => 72 bytes
     }
@@ -23,6 +30,6 @@ public class Main {
         return colors[randomInd];
     }
     private static int getRandomCoordinate() {
-        return (int)(Math.random() * 100);
+        return (int)(Math.random() * 500);
     }
 }

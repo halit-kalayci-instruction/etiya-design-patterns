@@ -34,6 +34,14 @@ public class Circle implements Shape
         this.y = y;
     }
 
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
     @Override
     public void draw() {
         System.out.println("Ekranın " + x + "," + y + " koordinatlarına " + color.toString() + " renginde circle çizildi.");
