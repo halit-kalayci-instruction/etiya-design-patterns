@@ -7,6 +7,11 @@ public class DatabaseContext {
     private String name;
 
     private DatabaseContext(String name) {
+        try{
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.name = name;
     }
 
