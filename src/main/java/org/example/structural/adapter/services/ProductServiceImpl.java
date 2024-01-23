@@ -5,6 +5,7 @@ import org.example.structural.adapter.caching.CachingBase;
 public class ProductServiceImpl implements ProductService{
     private CachingBase caching;
 
+    // DI Hell, CTOR Hell
     public ProductServiceImpl(CachingBase caching) {
         this.caching = caching;
     }
