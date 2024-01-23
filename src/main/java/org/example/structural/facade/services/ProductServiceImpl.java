@@ -14,6 +14,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     public void add() {
+        //productServiceFacade.getProductRepository();
     }
 }
 // 11.00
