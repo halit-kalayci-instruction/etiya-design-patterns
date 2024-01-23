@@ -4,6 +4,7 @@ import org.example.structural.proxy.libraries.ExampleService;
 
 import java.util.HashMap;
 
+// @Service
 public class ExampleServiceProxy
 {
     private ExampleService exampleService;
