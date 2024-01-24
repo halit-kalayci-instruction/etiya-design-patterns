@@ -15,3 +15,4 @@ public class Main {
         digitalProduct.process();
     }
 }
+// CQRS
