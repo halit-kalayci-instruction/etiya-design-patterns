@@ -14,3 +14,6 @@ public class CreateOrderCommand implements OrderCommand
         System.out.println(userId + " idli user için sipariş oluşturuldu.");
     }
 }
+// DDD
+// Async, Sync
+// Docker
